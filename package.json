@@ -1,0 +1,13 @@
+{
+  "name": "cube-miniapps-rubik",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js tests/core/*.test.js tests/render/*.test.js tests/adapters/*.test.js tests/runtime/*.test.js tests/integration/*.test.js",
+    "sync:shared": "node scripts/sync-miniapp-shared.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.4"
+  }
+}

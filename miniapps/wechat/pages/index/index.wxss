@@ -1,0 +1,175 @@
+.page-shell {
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.panel {
+  background: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%);
+  border-radius: 28rpx;
+  padding: 20rpx;
+  box-shadow: 0 12rpx 32rpx rgba(15, 23, 42, 0.08);
+}
+
+.header-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.tabs {
+  display: flex;
+  gap: 12rpx;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 14rpx 22rpx;
+  border-radius: 999rpx;
+  background: #dbe6f8;
+  color: #334155;
+  font-size: 26rpx;
+}
+
+.tab-active {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.size-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.size-caption,
+.size-summary,
+.hint-text {
+  font-size: 24rpx;
+  color: #475569;
+}
+
+.size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+.size-chip {
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  background: rgba(219, 230, 248, 0.9);
+  color: #334155;
+  font-size: 24rpx;
+}
+
+.size-chip-active {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 8rpx 20rpx rgba(37, 99, 235, 0.22);
+}
+
+.stats-grid {
+  margin-top: 18rpx;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14rpx;
+}
+
+.stat-card {
+  padding: 18rpx;
+  border-radius: 20rpx;
+  background: rgba(255, 255, 255, 0.75);
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.stat-wide {
+  grid-column: span 2;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: #64748b;
+}
+
+.stat-value {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.canvas-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.cube-touch-surface {
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gesture-tip {
+  font-size: 24rpx;
+  color: #475569;
+}
+
+.action-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.action-row {
+  display: flex;
+  gap: 12rpx;
+  flex-wrap: wrap;
+}
+
+.queue-text {
+  font-size: 24rpx;
+  color: #334155;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.lesson-panel,
+.records-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.lesson-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lesson-count {
+  font-size: 24rpx;
+  color: #475569;
+}
+
+.lesson-title {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.lesson-summary,
+.lesson-meta,
+.record-item,
+.empty-records {
+  font-size: 24rpx;
+  color: #334155;
+  line-height: 1.6;
+}
