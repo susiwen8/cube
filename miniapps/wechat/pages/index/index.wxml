@@ -1,0 +1,106 @@
+<view class="page-shell">
+  <view class="panel header-panel">
+    <view class="tabs">
+      <view
+        wx:for="{{tabs}}"
+        wx:key="id"
+        class="tab {{mode === item.id ? 'tab-active' : ''}}"
+        data-mode="{{item.id}}"
+        bindtap="handleModeChange"
+      >
+        {{item.label}}
+      </view>
+    </view>
+    <view class="size-strip">
+      <text class="size-caption">阶数</text>
+      <view class="size-options">
+        <view
+          wx:for="{{sizeOptions}}"
+          wx:key="value"
+          class="size-chip {{cubeSize === item.value ? 'size-chip-active' : ''}}"
+          data-size="{{item.value}}"
+          bindtap="handleSizeChange"
+        >
+          {{item.label}}
+        </view>
+      </view>
+      <text class="size-summary">{{sizeLabel}}</text>
+    </view>
+    <view class="stats-grid">
+      <view class="stat-card">
+        <text class="stat-label">计时</text>
+        <text class="stat-value">{{timerLabel}}</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-label">步数</text>
+        <text class="stat-value">{{moveCount}}</text>
+      </view>
+      <view class="stat-card stat-wide">
+        <text class="stat-label">状态</text>
+        <text class="stat-value">{{statusLabel}}</text>
+      </view>
+    </view>
+    <view wx:if="{{cubeSize > 3}}" class="hint-text">高阶自动求解采用历史回退，内层记号使用 2R / 3U / 4F。</view>
+  </view>
+
+  <view
+    id="canvasWrap"
+    class="panel canvas-panel"
+  >
+    <view
+      id="cubeTouchSurface"
+      class="cube-touch-surface"
+      catchtouchstart="handleTouchStart"
+      catchtouchmove="handleTouchMove"
+      catchtouchend="handleTouchEnd"
+    >
+      <canvas
+        id="cubeCanvas"
+        canvas-id="cubeCanvas"
+        style="width: 320px; height: 320px;"
+      />
+    </view>
+    <view class="gesture-tip">贴纸上拖动转层，空白区域拖动转视角</view>
+  </view>
+
+  <view class="panel action-panel">
+    <view class="action-row">
+      <button size="mini" bindtap="handleShuffle">打乱</button>
+      <button size="mini" bindtap="handleTimedShuffle">打乱并开始</button>
+      <button size="mini" bindtap="handleReset">复位</button>
+      <button size="mini" type="primary" bindtap="handleAutoSolve">自动求解</button>
+    </view>
+    <view class="action-row">
+      <button size="mini" bindtap="handleStepSolve">下一步</button>
+      <button size="mini" bindtap="handleTogglePlayback">{{playbackLabel}}</button>
+      <button size="mini" bindtap="handleLessonDemo">演示当前课</button>
+    </view>
+    <view class="queue-text">当前阶数：{{sizeLabel}}</view>
+    <view class="queue-text">求解队列：{{solveQueueLabel || '无'}}</view>
+    <view class="queue-text">求解策略：{{solveStrategyLabel}}</view>
+  </view>
+
+  <view class="panel lesson-panel">
+    <view class="section-title">教学模式</view>
+    <view class="lesson-nav">
+      <button size="mini" bindtap="handlePrevLesson">上一课</button>
+      <text class="lesson-count">{{currentLessonNumber}} / {{lessonCount}}</text>
+      <button size="mini" bindtap="handleNextLesson">下一课</button>
+    </view>
+    <view class="lesson-title">{{lessonTitle}}</view>
+    <view class="lesson-summary">{{lessonSummary}}</view>
+    <view class="lesson-meta">重点面：{{lessonFocus}}</view>
+    <view class="lesson-meta">公式：{{lessonNotation}}</view>
+    <view wx:if="{{cubeSize > 3}}" class="lesson-meta">高阶学习时，外层公式照常使用，内层转动记作 2R / 2U / 3F。</view>
+  </view>
+
+  <view class="panel records-panel">
+    <view class="section-title">{{recordsTitle}}</view>
+    <block wx:if="{{records.length}}">
+      <view wx:for="{{records}}" wx:key="index" class="record-item">
+        <text>{{item.label}}</text>
+      </view>
+    </block>
+    <view wx:else class="empty-records">暂无成绩记录</view>
+  </view>
+</view>

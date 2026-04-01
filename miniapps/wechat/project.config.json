@@ -1,0 +1,14 @@
+{
+  "description": "原生微信小程序魔方项目",
+  "miniprogramRoot": "./",
+  "projectname": "cube-miniapp-wechat",
+  "compileType": "miniprogram",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": false,
+    "minifyWXML": true
+  },
+  "appid": "wx37868b3073a23966"
+}
