@@ -31,6 +31,7 @@ function createCamera(options = {}) {
     pitch: options.pitch ?? -0.45,
     distance: options.distance ?? 8,
     focalLength: options.focalLength ?? 240,
+    // Offsets are applied after projection in canvas pixels, not world units.
     offsetX: options.offsetX ?? 0,
     offsetY: options.offsetY ?? 0
   };
