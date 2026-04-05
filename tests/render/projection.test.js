@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import { createSolvedState } from '../../src/shared/core/cube-state.js';
+import { getPuzzleDefinition } from '../../src/shared/puzzles/catalog.js';
 import { buildStickerScene } from '../../src/shared/render/cube-renderer.js';
 import { createCamera, projectPoint } from '../../src/shared/render/projection.js';
 import { hitTestSticker } from '../../src/shared/render/hit-test.js';
@@ -26,6 +27,25 @@ test('front face center sticker is hittable in a canonical front view', () => {
   assert.equal(hit.index, 4);
 });
 
+test('cube default mobile view renders larger while staying visually centered', () => {
+  const puzzle = getPuzzleDefinition('cube');
+  const camera = createCamera({
+    width: 320,
+    height: 320,
+    yaw: -0.65,
+    pitch: -0.45,
+    distance: puzzle.cameraDistance ?? 8,
+    offsetX: puzzle.cameraOffsetX ?? 0,
+    offsetY: puzzle.cameraOffsetY ?? 0,
+  });
+  const scene = buildStickerScene(createSolvedState(), camera);
+  const bounds = getBounds(scene.flatMap((sticker) => sticker.points));
+
+  assert.equal(bounds.width >= 188, true, 'cube footprint should be larger for touch play');
+  assert.equal(Math.abs(bounds.centerX - 160) <= 4, true, 'cube should stay centered on the x-axis');
+  assert.equal(Math.abs(bounds.centerY - 160) <= 4, true, 'cube should stay centered on the y-axis');
+});
+
 function averagePoint(points) {
   const total = points.reduce(
     (accumulator, point) => ({
@@ -38,5 +58,21 @@ function averagePoint(points) {
   return {
     x: total.x / points.length,
     y: total.y / points.length,
+  };
+}
+
+function getBounds(points) {
+  const xs = points.map((point) => point.x);
+  const ys = points.map((point) => point.y);
+  const minX = Math.min(...xs);
+  const maxX = Math.max(...xs);
+  const minY = Math.min(...ys);
+  const maxY = Math.max(...ys);
+
+  return {
+    width: maxX - minX,
+    height: maxY - minY,
+    centerX: (minX + maxX) / 2,
+    centerY: (minY + maxY) / 2,
   };
 }

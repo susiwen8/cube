@@ -47,4 +47,7 @@ export const cubePuzzle = {
   showSizePicker: true,
   showLessons: true,
   usesDirectTouchMoves: true,
+  cameraDistance: 5.9,
+  cameraOffsetX: -4,
+  cameraOffsetY: -18,
 };

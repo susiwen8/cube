@@ -500,7 +500,9 @@ function renderScene(runtime, options = {}) {
     height: CANVAS_SIZE,
     yaw: runtime.viewport.yaw,
     pitch: runtime.viewport.pitch,
-    distance: 8
+    distance: puzzle.cameraDistance ?? 8,
+    offsetX: puzzle.cameraOffsetX ?? 0,
+    offsetY: puzzle.cameraOffsetY ?? 0
   });
   const state = options.baseState ?? runtime.controller.getSession().cube;
   const highlightFaces = runtime.controller.getSession().mode === "lesson" && puzzle.showLessons ? [...lesson.focusFaces] : [];

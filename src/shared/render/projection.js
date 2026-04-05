@@ -8,6 +8,8 @@ export function createCamera(options = {}) {
     pitch: options.pitch ?? -0.45,
     distance: options.distance ?? 8,
     focalLength: options.focalLength ?? 240,
+    offsetX: options.offsetX ?? 0,
+    offsetY: options.offsetY ?? 0,
   };
 }
 
@@ -22,8 +24,8 @@ export function projectPoint(camera, point) {
   const scale = camera.focalLength / depth;
 
   return {
-    x: camera.width / 2 + cameraPoint[0] * scale,
-    y: camera.height / 2 - cameraPoint[1] * scale,
+    x: camera.width / 2 + camera.offsetX + cameraPoint[0] * scale,
+    y: camera.height / 2 + camera.offsetY - cameraPoint[1] * scale,
     depth,
     cameraPoint,
   };
