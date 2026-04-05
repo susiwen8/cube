@@ -47,4 +47,8 @@ export const cubePuzzle = {
   showSizePicker: true,
   showLessons: true,
   usesDirectTouchMoves: true,
+  // Distance uses renderer world units; X/Y offsets use 320x320 canvas pixels.
+  cameraDistance: 5.9,
+  cameraOffsetX: -4,
+  cameraOffsetY: -18,
 };
