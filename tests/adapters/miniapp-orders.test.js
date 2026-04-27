@@ -47,8 +47,8 @@ test('shared miniapp page exposes 3-10 order options and filters records after s
 
   assert.equal(page.__runtime.controller.getSession().size, 6);
   assert.equal(page.data.cubeSize, 6);
-  assert.equal(page.data.sizeLabel, '6阶魔方');
-  assert.equal(page.data.recordsTitle, '6阶成绩');
+  assert.equal(page.data.sizeLabel, '6x6 Cube');
+  assert.equal(page.data.recordsTitle, '6x6 Records');
   assert.equal(page.data.records.length, 1);
 });
 
@@ -90,7 +90,7 @@ test('high-order size selection surfaces fallback solving strategy in the page v
 
   assert.equal(page.__runtime.controller.getSession().size, 5);
   assert.equal(page.data.cubeSize, 5);
-  assert.equal(page.data.solveStrategyLabel, '历史回退');
+  assert.equal(page.data.solveStrategyLabel, 'History Fallback');
 });
 
 function instantiatePage(definition) {

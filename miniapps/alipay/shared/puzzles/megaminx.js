@@ -119,7 +119,7 @@ const megaminxPuzzle = {
     return "Megaminx";
   },
   getRecordsTitle() {
-    return "Megaminx \u6210\u7EE9";
+    return "Megaminx Records";
   },
   getMovePad() {
     return MOVE_PAD.map((row) => [...row]);

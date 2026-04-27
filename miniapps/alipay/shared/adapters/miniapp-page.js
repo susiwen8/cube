@@ -26,7 +26,7 @@ var import_app_runtime = require("../runtime/app-runtime.js");
 const SIZE_OPTIONS = Object.freeze(
   (0, import_platform_session.getSupportedCubeSizes)().map((size) => ({
     value: size,
-    label: `${size}\u9636`
+    label: `${size}x${size}`
   }))
 );
 function createMiniappPage(platform) {

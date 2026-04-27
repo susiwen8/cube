@@ -42,7 +42,7 @@ const CANVAS_WRAP_SELECTOR = "#canvasWrap";
 const SIZE_OPTIONS = Object.freeze(
   (0, import_platform_session.getSupportedCubeSizes)().map((size) => ({
     value: size,
-    label: `${size}\u9636`
+    label: `${size}x${size}`
   }))
 );
 const PUZZLE_OPTIONS = Object.freeze(
@@ -314,26 +314,26 @@ function createAppRuntime(platform = {}) {
 function createInitialViewData(lessons = (0, import_tutorial.getTutorialLessons)(), puzzleOptions = PUZZLE_OPTIONS) {
   return {
     cubeSize: 3,
-    sizeLabel: "3\u9636\u9B54\u65B9",
-    recordsTitle: "3\u9636\u6210\u7EE9",
+    sizeLabel: "3x3 Cube",
+    recordsTitle: "3x3 Records",
     sizeOptions: SIZE_OPTIONS.map((option) => ({ ...option })),
     puzzleId: puzzleOptions[0]?.id ?? "cube",
-    puzzleLabel: puzzleOptions[0]?.label ?? "\u9B54\u65B9",
+    puzzleLabel: puzzleOptions[0]?.label ?? "Cube",
     puzzleOptions: puzzleOptions.map((option) => ({ ...option })),
     showSizePicker: true,
     showLessons: true,
     movePad: [],
     tabs: [
-      { id: "free", label: "\u81EA\u7531\u73A9" },
-      { id: "lesson", label: "\u6559\u5B66" },
-      { id: "timer", label: "\u8BA1\u65F6" }
+      { id: "free", label: "Free" },
+      { id: "lesson", label: "Learn" },
+      { id: "timer", label: "Timer" }
     ],
     mode: "free",
     timerLabel: "00:00.000",
     moveCount: 0,
-    statusLabel: "\u81EA\u7531\u64CD\u4F5C",
+    statusLabel: "Free Play",
     solveQueueLabel: "",
-    solveStrategyLabel: "\u672A\u51C6\u5907",
+    solveStrategyLabel: "Not Ready",
     lessonCount: lessons.length,
     currentLessonNumber: 1,
     lessonTitle: lessons[0].title,
@@ -341,7 +341,7 @@ function createInitialViewData(lessons = (0, import_tutorial.getTutorialLessons)
     lessonNotation: lessons[0].notation.join(" "),
     lessonFocus: lessons[0].focusFaces.join(" / "),
     records: [],
-    playbackLabel: "\u64AD\u653E\u56DE\u653E"
+    playbackLabel: "Play Replay"
   };
 }
 function tickRuntime(runtime) {
@@ -468,7 +468,7 @@ function refreshView(runtime, shouldRender = true, now = runtime.now()) {
     lessonNotation: lesson.notation.join(" "),
     lessonFocus: lesson.focusFaces.join(" / "),
     records: runtime.controller.getSession().records.map(formatRecord),
-    playbackLabel: runtime.playback ? "\u6682\u505C\u56DE\u653E" : "\u64AD\u653E\u56DE\u653E"
+    playbackLabel: runtime.playback ? "Pause Replay" : "Play Replay"
   };
   runtime.viewState = {
     ...runtime.viewState,
@@ -566,7 +566,7 @@ function clamp(value, min, max) {
 }
 function formatRecord(record, index) {
   return {
-    label: `${index + 1}. ${formatDuration(record.elapsedMs)} / ${record.moveCount} \u6B65`
+    label: `${index + 1}. ${formatDuration(record.elapsedMs)} / ${record.moveCount} moves`
   };
 }
 function formatDuration(elapsedMs) {

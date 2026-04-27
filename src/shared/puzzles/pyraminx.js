@@ -92,7 +92,7 @@ export const pyraminxPuzzle = {
     return 'Pyraminx';
   },
   getRecordsTitle() {
-    return 'Pyraminx 成绩';
+    return 'Pyraminx Records';
   },
   getMovePad() {
     return MOVE_PAD.map((row) => [...row]);

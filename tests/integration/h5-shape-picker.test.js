@@ -13,7 +13,7 @@ test('h5 bottom panel exposes a true puzzle picker and move-pad hooks for non-cu
   const skewbSource = fs.readFileSync(path.join(rootDir, 'src', 'shared', 'puzzles', 'skewb.js'), 'utf8');
   const megaminxSource = fs.readFileSync(path.join(rootDir, 'src', 'shared', 'puzzles', 'megaminx.js'), 'utf8');
 
-  assert.match(panelSource, /<h2>谜题<\/h2>/);
+  assert.match(panelSource, /<h2>Puzzle<\/h2>/);
   assert.match(panelSource, /viewState\.puzzleOptions/);
   assert.match(panelSource, /move-pad-grid/);
   assert.match(panelSource, /actions\.handlePuzzleChange/);

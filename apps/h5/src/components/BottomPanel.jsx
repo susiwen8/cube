@@ -56,21 +56,21 @@ export function BottomPanel({ viewState, actions }) {
     <section className="bottom-panel">
       <div className="control-block">
         <div className="section-heading">
-          <h2>操作</h2>
+          <h2>Controls</h2>
         </div>
         <div className="button-grid">
-          <button type="button" className="primary-button" onClick={actions.handleShuffle}>打乱</button>
-          <button type="button" className="secondary-button" onClick={actions.handleTimedShuffle}>打乱并开始</button>
-          <button type="button" className="secondary-button" onClick={actions.handleReset}>复位</button>
-          <button type="button" className="primary-button" onClick={actions.handleAutoSolve}>自动求解</button>
-          <button type="button" className="secondary-button" onClick={actions.handleStepSolve}>下一步</button>
+          <button type="button" className="primary-button" onClick={actions.handleShuffle}>Shuffle</button>
+          <button type="button" className="secondary-button" onClick={actions.handleTimedShuffle}>Shuffle + Start</button>
+          <button type="button" className="secondary-button" onClick={actions.handleReset}>Reset</button>
+          <button type="button" className="primary-button" onClick={actions.handleAutoSolve}>Auto Solve</button>
+          <button type="button" className="secondary-button" onClick={actions.handleStepSolve}>Next Step</button>
           <button type="button" className="secondary-button" onClick={actions.handleTogglePlayback}>{viewState.playbackLabel}</button>
         </div>
       </div>
 
       <div className="control-block">
         <div className="section-heading">
-          <h2>谜题</h2>
+          <h2>Puzzle</h2>
         </div>
         <div className="puzzle-grid">{viewState.puzzleOptions.map((option) => renderPuzzleOption(option, viewState, actions))}</div>
       </div>
@@ -78,7 +78,7 @@ export function BottomPanel({ viewState, actions }) {
       {viewState.showSizePicker ? (
         <div className="control-block">
           <div className="section-heading">
-            <h2>阶数</h2>
+            <h2>Size</h2>
           </div>
           <div className="size-grid">{viewState.sizeOptions.map((option) => renderSizeOption(option, viewState, actions))}</div>
         </div>
@@ -87,7 +87,7 @@ export function BottomPanel({ viewState, actions }) {
       {viewState.movePad.length ? (
         <div className="control-block">
           <div className="section-heading">
-            <h2>转动</h2>
+            <h2>Moves</h2>
           </div>
           <div className="move-pad-grid">{viewState.movePad.map((row, rowIndex) => renderMovePadRow(row, rowIndex, actions))}</div>
         </div>
@@ -95,18 +95,18 @@ export function BottomPanel({ viewState, actions }) {
 
       {viewState.showLessons ? (
         <details className="control-block collapsible-block">
-          <summary className="collapse-summary">教学</summary>
+          <summary className="collapse-summary">Tutorial</summary>
           <div className="collapse-content">
             <div className="section-heading">
               <h2>{viewState.lessonTitle}</h2>
             </div>
             <p className="lesson-copy">{viewState.lessonSummary}</p>
-            <p className="support-line">重点面：{viewState.lessonFocus}</p>
-            <p className="support-line">公式：{viewState.lessonNotation}</p>
+            <p className="support-line">Focus: {viewState.lessonFocus}</p>
+            <p className="support-line">Algorithm: {viewState.lessonNotation}</p>
             <div className="button-grid compact-grid">
-              <button type="button" className="secondary-button" onClick={actions.handlePrevLesson}>上一课</button>
-              <button type="button" className="secondary-button" onClick={actions.handleNextLesson}>下一课</button>
-              <button type="button" className="primary-button button-span" onClick={actions.handleLessonDemo}>演示当前课</button>
+              <button type="button" className="secondary-button" onClick={actions.handlePrevLesson}>Previous</button>
+              <button type="button" className="secondary-button" onClick={actions.handleNextLesson}>Next</button>
+              <button type="button" className="primary-button button-span" onClick={actions.handleLessonDemo}>Demo Lesson</button>
             </div>
           </div>
         </details>
@@ -118,7 +118,7 @@ export function BottomPanel({ viewState, actions }) {
           {viewState.records.length ? (
             <ul className="record-list">{viewState.records.map(renderRecord)}</ul>
           ) : (
-            <p className="empty-records">暂无成绩记录</p>
+            <p className="empty-records">No records yet</p>
           )}
         </div>
       </details>

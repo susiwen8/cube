@@ -11,5 +11,5 @@ test('session state tracks the selected puzzle id and view model uses puzzle lab
   assert.equal(session.puzzleId, 'pyraminx');
   assert.equal(model.puzzleId, 'pyraminx');
   assert.equal(model.sizeLabel, 'Pyraminx');
-  assert.equal(model.recordsTitle, 'Pyraminx 成绩');
+  assert.equal(model.recordsTitle, 'Pyraminx Records');
 });

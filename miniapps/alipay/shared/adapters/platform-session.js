@@ -41,8 +41,8 @@ function normalizeTouches(event = {}) {
 }
 function toPageViewModel(session, options = {}) {
   const puzzle = (0, import_catalog.getPuzzleDefinition)(session.puzzleId);
-  const sizeLabel = puzzle.getDisplayName?.(session.size) ?? (session.puzzleId === "cube" ? `${session.size}\u9636\u9B54\u65B9` : puzzle.label);
-  const recordsTitle = puzzle.getRecordsTitle?.(session.size) ?? (session.puzzleId === "cube" ? `${session.size}\u9636\u6210\u7EE9` : `${puzzle.label} \u6210\u7EE9`);
+  const sizeLabel = puzzle.getDisplayName?.(session.size) ?? (session.puzzleId === "cube" ? `${session.size}x${session.size} Cube` : puzzle.label);
+  const recordsTitle = puzzle.getRecordsTitle?.(session.size) ?? (session.puzzleId === "cube" ? `${session.size}x${session.size} Records` : `${puzzle.label} Records`);
   return {
     puzzleId: session.puzzleId ?? "cube",
     puzzleLabel: puzzle.label,
@@ -71,27 +71,27 @@ function normalizeTouchList(touches = []) {
 }
 function formatStatus(session) {
   if (session.timer.status === "pending") {
-    return "\u8BA1\u65F6\u5F85\u5F00\u59CB";
+    return "Timer Ready";
   }
   if (session.timer.status === "running") {
-    return session.assisted ? "\u8F85\u52A9\u6C42\u89E3\u4E2D" : "\u8BA1\u65F6\u8FDB\u884C\u4E2D";
+    return session.assisted ? "Assisted Solve Running" : "Timer Running";
   }
   if (session.timer.status === "finished") {
-    return session.assisted ? "\u8F85\u52A9\u5B8C\u6210" : "\u5DF2\u5B8C\u6210";
+    return session.assisted ? "Finished with Assist" : "Solved";
   }
-  return "\u81EA\u7531\u64CD\u4F5C";
+  return "Free Play";
 }
 function formatSolveStrategy(strategy) {
   if (strategy === "state-search") {
-    return "\u72B6\u6001\u641C\u7D22";
+    return "State Search";
   }
   if (strategy === "history-fallback") {
-    return "\u5386\u53F2\u56DE\u9000";
+    return "History Fallback";
   }
   if (strategy === "solved") {
-    return "\u65E0\u9700\u6C42\u89E3";
+    return "Already Solved";
   }
-  return "\u672A\u51C6\u5907";
+  return "Not Ready";
 }
 function formatDuration(elapsedMs) {
   const minutes = Math.floor(elapsedMs / 6e4);

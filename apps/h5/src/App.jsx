@@ -34,7 +34,7 @@ export default function App() {
             <div className="stage-footer">
               <span>{viewState.statusLabel}</span>
               <span>{viewState.timerLabel}</span>
-              <span>步数 {viewState.moveCount}</span>
+              <span>Moves {viewState.moveCount}</span>
             </div>
           </section>
           <BottomPanel viewState={viewState} actions={actions} />

@@ -22,6 +22,6 @@ test('each lesson contains title, summary, notation, and optional demo moves', (
 test('lesson lookup returns a stable lesson definition', () => {
   const lesson = getLessonById('white-cross');
 
-  assert.equal(lesson.title, '白十字');
+  assert.equal(lesson.title, 'White Cross');
   assert.deepEqual(lesson.focusFaces, ['U', 'F']);
 });

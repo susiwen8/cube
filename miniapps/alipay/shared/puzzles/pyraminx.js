@@ -97,7 +97,7 @@ const pyraminxPuzzle = {
     return "Pyraminx";
   },
   getRecordsTitle() {
-    return "Pyraminx \u6210\u7EE9";
+    return "Pyraminx Records";
   },
   getMovePad() {
     return MOVE_PAD.map((row) => [...row]);

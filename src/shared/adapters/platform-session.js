@@ -21,8 +21,8 @@ export function normalizeTouches(event = {}) {
 
 export function toPageViewModel(session, options = {}) {
   const puzzle = getPuzzleDefinition(session.puzzleId);
-  const sizeLabel = puzzle.getDisplayName?.(session.size) ?? (session.puzzleId === 'cube' ? `${session.size}阶魔方` : puzzle.label);
-  const recordsTitle = puzzle.getRecordsTitle?.(session.size) ?? (session.puzzleId === 'cube' ? `${session.size}阶成绩` : `${puzzle.label} 成绩`);
+  const sizeLabel = puzzle.getDisplayName?.(session.size) ?? (session.puzzleId === 'cube' ? `${session.size}x${session.size} Cube` : puzzle.label);
+  const recordsTitle = puzzle.getRecordsTitle?.(session.size) ?? (session.puzzleId === 'cube' ? `${session.size}x${session.size} Records` : `${puzzle.label} Records`);
 
   return {
     puzzleId: session.puzzleId ?? 'cube',
@@ -54,34 +54,34 @@ function normalizeTouchList(touches = []) {
 
 function formatStatus(session) {
   if (session.timer.status === 'pending') {
-    return '计时待开始';
+    return 'Timer Ready';
   }
 
   if (session.timer.status === 'running') {
-    return session.assisted ? '辅助求解中' : '计时进行中';
+    return session.assisted ? 'Assisted Solve Running' : 'Timer Running';
   }
 
   if (session.timer.status === 'finished') {
-    return session.assisted ? '辅助完成' : '已完成';
+    return session.assisted ? 'Finished with Assist' : 'Solved';
   }
 
-  return '自由操作';
+  return 'Free Play';
 }
 
 function formatSolveStrategy(strategy) {
   if (strategy === 'state-search') {
-    return '状态搜索';
+    return 'State Search';
   }
 
   if (strategy === 'history-fallback') {
-    return '历史回退';
+    return 'History Fallback';
   }
 
   if (strategy === 'solved') {
-    return '无需求解';
+    return 'Already Solved';
   }
 
-  return '未准备';
+  return 'Not Ready';
 }
 
 function formatDuration(elapsedMs) {

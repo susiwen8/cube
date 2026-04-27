@@ -4,7 +4,7 @@ import { createAppRuntime, createInitialViewData } from '../runtime/app-runtime.
 const SIZE_OPTIONS = Object.freeze(
   getSupportedCubeSizes().map((size) => ({
     value: size,
-    label: `${size}阶`,
+    label: `${size}x${size}`,
   })),
 );
 

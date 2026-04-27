@@ -30,7 +30,7 @@ test('scramble, first move, auto solve playback, and page model work together', 
   assert.equal(controller.getSession().timer.status, 'finished');
   assert.equal(controller.getSession().assisted, true);
   assert.equal(viewModel.lessonCount, 7);
-  assert.equal(viewModel.statusLabel, '辅助完成');
+  assert.equal(viewModel.statusLabel, 'Finished with Assist');
 });
 
 test('high-order flows switch size, expose size labels, and solve through history fallback', () => {
@@ -53,9 +53,9 @@ test('high-order flows switch size, expose size labels, and solve through histor
   const queuedViewModel = controller.getViewModel({ elapsedMs: 0 });
 
   assert.equal(controller.getSession().size, 6);
-  assert.equal(queuedViewModel.sizeLabel, '6阶魔方');
-  assert.equal(queuedViewModel.recordsTitle, '6阶成绩');
-  assert.equal(queuedViewModel.solveStrategyLabel, '历史回退');
+  assert.equal(queuedViewModel.sizeLabel, '6x6 Cube');
+  assert.equal(queuedViewModel.recordsTitle, '6x6 Records');
+  assert.equal(queuedViewModel.solveStrategyLabel, 'History Fallback');
 
   while (controller.getSession().solveQueue.length > 0) {
     controller.stepAutoSolve({ at: 20 });

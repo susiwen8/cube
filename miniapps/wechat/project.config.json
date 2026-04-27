@@ -1,5 +1,5 @@
 {
-  "description": "原生微信小程序魔方项目",
+  "description": "Native WeChat miniapp cube project",
   "miniprogramRoot": "./",
   "projectname": "cube-miniapp-wechat",
   "compileType": "miniprogram",

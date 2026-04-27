@@ -120,7 +120,7 @@ export const skewbPuzzle = {
     return 'Skewb';
   },
   getRecordsTitle() {
-    return 'Skewb 成绩';
+    return 'Skewb Records';
   },
   getMovePad() {
     return MOVE_PAD.map((row) => [...row]);

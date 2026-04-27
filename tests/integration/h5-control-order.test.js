@@ -10,6 +10,6 @@ test('h5 bottom panel places actions before size controls', () => {
 
   assert.match(
     panelSource,
-    /<h2>操作<\/h2>[\s\S]*<h2>阶数<\/h2>/,
+    /<h2>Controls<\/h2>[\s\S]*<h2>Size<\/h2>/,
   );
 });

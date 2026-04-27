@@ -20,7 +20,7 @@ const CANVAS_WRAP_SELECTOR = '#canvasWrap';
 const SIZE_OPTIONS = Object.freeze(
   getSupportedCubeSizes().map((size) => ({
     value: size,
-    label: `${size}阶`,
+    label: `${size}x${size}`,
   })),
 );
 const PUZZLE_OPTIONS = Object.freeze(
@@ -348,26 +348,26 @@ export function createAppRuntime(platform = {}) {
 export function createInitialViewData(lessons = getTutorialLessons(), puzzleOptions = PUZZLE_OPTIONS) {
   return {
     cubeSize: 3,
-    sizeLabel: '3阶魔方',
-    recordsTitle: '3阶成绩',
+    sizeLabel: '3x3 Cube',
+    recordsTitle: '3x3 Records',
     sizeOptions: SIZE_OPTIONS.map((option) => ({ ...option })),
     puzzleId: puzzleOptions[0]?.id ?? 'cube',
-    puzzleLabel: puzzleOptions[0]?.label ?? '魔方',
+    puzzleLabel: puzzleOptions[0]?.label ?? 'Cube',
     puzzleOptions: puzzleOptions.map((option) => ({ ...option })),
     showSizePicker: true,
     showLessons: true,
     movePad: [],
     tabs: [
-      { id: 'free', label: '自由玩' },
-      { id: 'lesson', label: '教学' },
-      { id: 'timer', label: '计时' },
+      { id: 'free', label: 'Free' },
+      { id: 'lesson', label: 'Learn' },
+      { id: 'timer', label: 'Timer' },
     ],
     mode: 'free',
     timerLabel: '00:00.000',
     moveCount: 0,
-    statusLabel: '自由操作',
+    statusLabel: 'Free Play',
     solveQueueLabel: '',
-    solveStrategyLabel: '未准备',
+    solveStrategyLabel: 'Not Ready',
     lessonCount: lessons.length,
     currentLessonNumber: 1,
     lessonTitle: lessons[0].title,
@@ -375,7 +375,7 @@ export function createInitialViewData(lessons = getTutorialLessons(), puzzleOpti
     lessonNotation: lessons[0].notation.join(' '),
     lessonFocus: lessons[0].focusFaces.join(' / '),
     records: [],
-    playbackLabel: '播放回放',
+    playbackLabel: 'Play Replay',
   };
 }
 
@@ -520,7 +520,7 @@ function refreshView(runtime, shouldRender = true, now = runtime.now()) {
     lessonNotation: lesson.notation.join(' '),
     lessonFocus: lesson.focusFaces.join(' / '),
     records: runtime.controller.getSession().records.map(formatRecord),
-    playbackLabel: runtime.playback ? '暂停回放' : '播放回放',
+    playbackLabel: runtime.playback ? 'Pause Replay' : 'Play Replay',
   };
 
   runtime.viewState = {
@@ -639,7 +639,7 @@ function clamp(value, min, max) {
 
 function formatRecord(record, index) {
   return {
-    label: `${index + 1}. ${formatDuration(record.elapsedMs)} / ${record.moveCount} 步`,
+    label: `${index + 1}. ${formatDuration(record.elapsedMs)} / ${record.moveCount} moves`,
   };
 }
 

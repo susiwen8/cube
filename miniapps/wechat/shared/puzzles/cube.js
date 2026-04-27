@@ -26,7 +26,7 @@ var import_solver = require("../core/solver.js");
 var import_cube_renderer = require("../render/cube-renderer.js");
 const cubePuzzle = {
   id: "cube",
-  label: "\u9B54\u65B9",
+  label: "Cube",
   defaultSize: 3,
   supportsSize(size) {
     return Number.isInteger(size) && size >= 3 && size <= 10;
@@ -57,10 +57,10 @@ const cubePuzzle = {
     return (0, import_cube_renderer.buildStickerScene)(state, camera, options);
   },
   getDisplayName(size = 3) {
-    return `${size}\u9636\u9B54\u65B9`;
+    return `${size}x${size} Cube`;
   },
   getRecordsTitle(size = 3) {
-    return `${size}\u9636\u6210\u7EE9`;
+    return `${size}x${size} Records`;
   },
   getMovePad() {
     return [];

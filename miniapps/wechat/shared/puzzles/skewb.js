@@ -125,7 +125,7 @@ const skewbPuzzle = {
     return "Skewb";
   },
   getRecordsTitle() {
-    return "Skewb \u6210\u7EE9";
+    return "Skewb Records";
   },
   getMovePad() {
     return MOVE_PAD.map((row) => [...row]);

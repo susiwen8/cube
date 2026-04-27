@@ -44,7 +44,7 @@ test('shared miniapp page uses one scheduler for timer updates and solve playbac
   }
 
   assert.equal(page.__runtime.controller.getSession().solveQueue.length, 0);
-  assert.equal(page.data.statusLabel, '辅助完成');
+  assert.equal(page.data.statusLabel, 'Finished with Assist');
 });
 
 test('timed shuffle starts the timer immediately in the page runtime', () => {
@@ -82,7 +82,7 @@ test('timed shuffle starts the timer immediately in the page runtime', () => {
 
   assert.equal(page.__runtime.controller.getSession().timer.status, 'running');
   assert.equal(page.__runtime.controller.getSession().timer.startedAt, 1000);
-  assert.equal(page.data.statusLabel, '计时进行中');
+  assert.equal(page.data.statusLabel, 'Timer Running');
   assert.equal(page.data.timerLabel, '00:00.450');
 });
 

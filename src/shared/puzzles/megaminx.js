@@ -116,7 +116,7 @@ export const megaminxPuzzle = {
     return 'Megaminx';
   },
   getRecordsTitle() {
-    return 'Megaminx 成绩';
+    return 'Megaminx Records';
   },
   getMovePad() {
     return MOVE_PAD.map((row) => [...row]);

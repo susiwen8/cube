@@ -63,7 +63,7 @@ export function CubeCanvas({ wrapRef, surfaceRef, canvasRef, actions }) {
         ref={surfaceRef}
         className="touch-surface"
         role="application"
-        aria-label="魔方操作区域"
+        aria-label="Cube interaction area"
         {...pointerHandlers}
         {...touchHandlers}
       >

@@ -5,7 +5,7 @@ import { buildStickerScene } from '../render/cube-renderer.js';
 
 export const cubePuzzle = {
   id: 'cube',
-  label: '魔方',
+  label: 'Cube',
   defaultSize: 3,
   supportsSize(size) {
     return Number.isInteger(size) && size >= 3 && size <= 10;
@@ -36,10 +36,10 @@ export const cubePuzzle = {
     return buildStickerScene(state, camera, options);
   },
   getDisplayName(size = 3) {
-    return `${size}阶魔方`;
+    return `${size}x${size} Cube`;
   },
   getRecordsTitle(size = 3) {
-    return `${size}阶成绩`;
+    return `${size}x${size} Records`;
   },
   getMovePad() {
     return [];

@@ -43,7 +43,7 @@ test('page view model exposes timer, solve queue, and tutorial-friendly fields',
 
   assert.equal(model.timerLabel, '00:01.500');
   assert.equal(model.solveQueueLabel, "U' R'");
-  assert.equal(model.solveStrategyLabel, '历史回退');
-  assert.equal(model.statusLabel, '辅助求解中');
+  assert.equal(model.solveStrategyLabel, 'History Fallback');
+  assert.equal(model.statusLabel, 'Assisted Solve Running');
   assert.equal(model.lessonCount, 7);
 });

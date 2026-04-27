@@ -72,7 +72,7 @@ test('high-order web runtime keeps history fallback solve strategy', () => {
   runtime.handleAutoSolve();
   timers.tick();
 
-  assert.equal(runtime.getViewState().solveStrategyLabel, '历史回退');
+  assert.equal(runtime.getViewState().solveStrategyLabel, 'History Fallback');
 });
 
 test('non-cube web runtime treats near-sticker touches as valid drag starts instead of dead gaps', () => {

@@ -46,7 +46,7 @@ test('runtime uses one scheduler for timer updates and solve playback', () => {
 
   assert.equal(runtime.controller.getSession().solveQueue.length, 0);
   assert.equal(runtime.controller.getSession().timer.status, 'finished');
-  assert.equal(viewUpdates.at(-1)?.statusLabel, '辅助完成');
+  assert.equal(viewUpdates.at(-1)?.statusLabel, 'Finished with Assist');
 });
 
 test('runtime switches to a true puzzle and exposes puzzle-specific controls', () => {

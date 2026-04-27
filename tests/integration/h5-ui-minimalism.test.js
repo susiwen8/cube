@@ -10,7 +10,7 @@ test('h5 app avoids verbose marketing copy in the primary screen components', ()
   const topBarSource = fs.readFileSync(path.join(rootDir, 'apps', 'h5', 'src', 'components', 'TopBar.jsx'), 'utf8');
   const panelSource = fs.readFileSync(path.join(rootDir, 'apps', 'h5', 'src', 'components', 'BottomPanel.jsx'), 'utf8');
 
-  assert.doesNotMatch(appSource, /手机浏览器也能流畅玩高阶魔方/);
+  assert.doesNotMatch(appSource, /mobile browser can smoothly play higher-order cubes/i);
   assert.doesNotMatch(topBarSource, /Mobile First/);
-  assert.doesNotMatch(panelSource, /求解队列：/);
+  assert.doesNotMatch(panelSource, /Solve queue:/);
 });

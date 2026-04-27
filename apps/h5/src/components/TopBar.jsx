@@ -20,11 +20,11 @@ export function TopBar({ viewState, actions }) {
         <p className="topbar-title">{viewState.statusLabel}</p>
         <div className="stats-cluster">
           <div className="stat-pill">
-            <span className="stat-label">计时</span>
+            <span className="stat-label">Timer</span>
             <strong>{viewState.timerLabel}</strong>
           </div>
           <div className="stat-pill">
-            <span className="stat-label">步数</span>
+            <span className="stat-label">Moves</span>
             <strong>{viewState.moveCount}</strong>
           </div>
         </div>
